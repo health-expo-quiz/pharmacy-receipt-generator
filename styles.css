@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f0f5f9; /* Light blue-gray for a calming feel */
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #006064; /* Deep teal for a professional pharmacy look */
+    margin-bottom: 20px;
+    font-size: 28px; /* Slightly larger for prominence */
+    font-weight: bold;
+    letter-spacing: 1px;
+    /* Optional: Add pharmacy name as pseudo-element if used with HTML */
+}
+
+h1::before {
+    content: "Rokeby St Pharmacy";
+    display: block;
+    font-size: 24px;
+}
+
+h2 {
+    color: #004d40; /* Darker teal for section headers */
+    font-size: 18px;
+    margin: 15px 0 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.section {
+    border: 1px solid #b2dfdb; /* Light teal border */
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #f7fafc; /* Very light blue background */
+}
+
+label {
+    font-weight: bold;
+    text-align: left;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input, select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #80cbc4; /* Medium teal border */
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.item input {
+    flex: 1;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #006064; /* Matching teal for buttons */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+button:hover {
+    background-color: #004d40; /* Darker teal on hover */
+}
+
+#receiptPreview {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #b2dfdb; /* Matching teal border */
+    background-color: #fff;
+    border-radius: 4px;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+th, td {
+    padding: 6px;
+    border: 1px solid #d0d0d0;
+}
+
+th:nth-child(1), td:nth-child(1) { width: 60%; }
+th:nth-child(2), td:nth-child(2) { width: 10%; text-align: center; }
+th:nth-child(3), td:nth-child(3) { width: 15%; text-align: right; }
+th:nth-child(4), td:nth-child(4) { width: 15%; text-align: right; }
+
+th {
+    background-color: #006064; /* Teal header for tables */
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f7fafc; /* Light blue for even rows */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.total-row {
+    font-weight: bold;
+    background-color: #e0f2f1; /* Light teal for totals */
+}
+
+.hidden {
+    display: none;
+}
+
+.banner {
+    background-color: #e0f7fa; /* Light cyan banner */
+    padding: 8px;
+    text-align: center;
+    margin: 10px 0;
+    border: 1px solid #b2ebf2;
+    color: #006064; /* Matching teal text */
+}
+
+.qr-placeholder {
+    border: 1px dashed #80cbc4; /* Teal dashed border */
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
