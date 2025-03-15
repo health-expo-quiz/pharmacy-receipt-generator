@@ -58,9 +58,9 @@ function generateReceipt() {
             }
         }
 
-        const abn = "12 345 678 901"; // Placeholder ABN for Rokeby St Pharmacy
+        const abn = "47 192 583 026"; // Believable static ABN
         const phone = "08 9381 2345"; // Placeholder phone number
-        const address = "N Rokeby Street\nSubiaco WA 6008\nAustralia";
+        const address = "21A Rokeby Street\nSubiaco WA 6008\nAustralia";
         const total = items.reduce((sum, item) => sum + (item.price * item.qty), 0);
         const paymentText = paymentMethod === "Card" && lastFour !== "N/A" 
             ? `Paid via ${cardType} •••• •••• •••• ${lastFour}` 
@@ -112,7 +112,8 @@ function generateReceipt() {
             format: 'a4'
         });
 
-        doc.addImage('rokeby-st-pharmacy.png', 'PNG', 85, 5, 40, 40); // Update path as needed
+        // Logo with correct relative path
+        doc.addImage('./images/rokeby-st-pharmacy.png', 'PNG', 85, 5, 40, 40);
         doc.setFontSize(22);
         doc.setFont("Helvetica", "bold");
         doc.setTextColor(0, 96, 100);
@@ -122,33 +123,34 @@ function generateReceipt() {
         doc.setTextColor(127, 140, 141);
         doc.text("Caring for Your Health", 105, 57, { align: "center" });
 
-        // Flash Sale Banner in PDF
-        doc.setFillColor(255, 0, 0); // Red background
+        // Flash Sale Banner
+        doc.setFillColor(255, 0, 0);
         doc.rect(20, 60, 170, 8, "F");
         doc.setFontSize(12);
         doc.setFont("Helvetica", "bold");
-        doc.setTextColor(255, 255, 255); // White text
+        doc.setTextColor(255, 255, 255);
         doc.text("FLASH SALE! 50% OFF COSMETICS", 105, 66, { align: "center" });
 
+        // Address and ABN with proper spacing
         doc.setFontSize(11);
         doc.setFont("Helvetica", "normal");
         doc.setTextColor(51, 51, 51);
-        doc.text(address, 105, 75, { align: "center", maxWidth: 110 });
-        doc.text(`ABN: ${abn}  |  Phone: ${phone}`, 105, 85, { align: "center" });
+        doc.text(address, 105, 75, { align: "center", maxWidth: 110 }); // Address starts at y=75
+        doc.text(`ABN: ${abn}  |  Phone: ${phone}`, 105, 90, { align: "center" }); // ABN/Phone at y=90
         doc.setLineWidth(0.5);
         doc.setDrawColor(0, 96, 100);
-        doc.line(20, 90, 190, 90);
+        doc.line(20, 95, 190, 95); // Line at y=95
 
         doc.setFontSize(12);
         doc.setFont("Helvetica", "bold");
-        doc.text(`Order #${orderNumber}`, 20, 100);
+        doc.text(`Order #${orderNumber}`, 20, 105);
         doc.setFont("Helvetica", "normal");
-        doc.text(`Date: ${formattedDateTime}`, 20, 108);
+        doc.text(`Date: ${formattedDateTime}`, 20, 113);
 
         doc.setFontSize(14);
         doc.setFont("Helvetica", "bold");
-        doc.text("Items Purchased", 20, 120);
-        let y = 127;
+        doc.text("Items Purchased", 20, 125);
+        let y = 132; // Table starts at y=132
         doc.setFontSize(10);
         doc.setFillColor(0, 96, 100);
         doc.rect(20, y, 170, 6, "F");
@@ -157,7 +159,7 @@ function generateReceipt() {
         doc.text("Qty", 130, y + 4, { align: "center" });
         doc.text("Unit Price", 150, y + 4, { align: "right" });
         doc.text("Total", 180, y + 4, { align: "right" });
-        y += 6;
+        y += 8; // Increased spacing after header
 
         doc.setTextColor(51, 51, 51);
         doc.setFont("Helvetica", "normal");
@@ -168,7 +170,7 @@ function generateReceipt() {
             doc.text(item.qty.toString(), 130, y + 4, { align: "center" });
             doc.text(`$${item.price.toFixed(2)}`, 150, y + 4, { align: "right" });
             doc.text(`$${(item.price * item.qty).toFixed(2)}`, 180, y + 4, { align: "right" });
-            y += 6;
+            y += 8; // Increased spacing between rows
         });
 
         doc.setFillColor(224, 242, 241);
@@ -180,21 +182,22 @@ function generateReceipt() {
 
         doc.setLineWidth(0.3);
         doc.line(20, y, 190, y);
-        y += 8;
+        y += 10;
         doc.setFontSize(11);
         doc.setFont("Helvetica", "normal");
         doc.setTextColor(51, 51, 51);
         doc.text(paymentText, 20, y);
-        y += 10;
+        y += 12;
 
         doc.setFillColor(224, 247, 250);
         doc.rect(20, y, 170, 10, "F");
         doc.setTextColor(0, 96, 100);
         doc.setFontSize(10);
         doc.text("Visit Us Again for Your Health Needs!", 105, y + 7, { align: "center" });
-        y += 15;
+        y += 18;
 
-        doc.addImage('frame.png', 'PNG', 85, y, 40, 40); // Update path as needed
+        // QR code with correct relative path
+        doc.addImage('./images/frame.png', 'PNG', 85, y, 40, 40);
         doc.setFontSize(9);
         doc.setTextColor(51, 51, 51);
         doc.text("Scan for Prescription Refills", 105, y + 45, { align: "center" });
@@ -202,7 +205,7 @@ function generateReceipt() {
 
         doc.setLineWidth(0.3);
         doc.line(20, y, 190, y);
-        y += 8;
+        y += 10;
         doc.setFontSize(13);
         doc.setFont("Helvetica", "bold");
         doc.setTextColor(0, 96, 100);
