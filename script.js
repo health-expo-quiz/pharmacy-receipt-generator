@@ -112,8 +112,16 @@ function generateReceipt() {
             format: 'a4'
         });
 
-        // Logo with correct relative path
-        doc.addImage('./images/rokeby-st-pharmacy.png', 'PNG', 85, 5, 40, 40);
+        // Logo with fallback handling
+        try {
+            doc.addImage('/images/rokeby-st-pharmacy.png', 'PNG', 85, 5, 40, 40); // Adjust path here
+        } catch (e) {
+            console.warn("Failed to load logo image:", e);
+            doc.setFontSize(10);
+            doc.setTextColor(255, 0, 0);
+            doc.text("Logo not found", 105, 10, { align: "center" }); // Placeholder text
+        }
+
         doc.setFontSize(22);
         doc.setFont("Helvetica", "bold");
         doc.setTextColor(0, 96, 100);
@@ -135,11 +143,11 @@ function generateReceipt() {
         doc.setFontSize(11);
         doc.setFont("Helvetica", "normal");
         doc.setTextColor(51, 51, 51);
-        doc.text(address, 105, 75, { align: "center", maxWidth: 110 }); // Address starts at y=75
-        doc.text(`ABN: ${abn}  |  Phone: ${phone}`, 105, 90, { align: "center" }); // ABN/Phone at y=90
+        doc.text(address, 105, 75, { align: "center", maxWidth: 110 });
+        doc.text(`ABN: ${abn}  |  Phone: ${phone}`, 105, 90, { align: "center" });
         doc.setLineWidth(0.5);
         doc.setDrawColor(0, 96, 100);
-        doc.line(20, 95, 190, 95); // Line at y=95
+        doc.line(20, 95, 190, 95);
 
         doc.setFontSize(12);
         doc.setFont("Helvetica", "bold");
@@ -150,7 +158,7 @@ function generateReceipt() {
         doc.setFontSize(14);
         doc.setFont("Helvetica", "bold");
         doc.text("Items Purchased", 20, 125);
-        let y = 132; // Table starts at y=132
+        let y = 132;
         doc.setFontSize(10);
         doc.setFillColor(0, 96, 100);
         doc.rect(20, y, 170, 6, "F");
@@ -159,7 +167,7 @@ function generateReceipt() {
         doc.text("Qty", 130, y + 4, { align: "center" });
         doc.text("Unit Price", 150, y + 4, { align: "right" });
         doc.text("Total", 180, y + 4, { align: "right" });
-        y += 8; // Increased spacing after header
+        y += 8;
 
         doc.setTextColor(51, 51, 51);
         doc.setFont("Helvetica", "normal");
@@ -170,7 +178,7 @@ function generateReceipt() {
             doc.text(item.qty.toString(), 130, y + 4, { align: "center" });
             doc.text(`$${item.price.toFixed(2)}`, 150, y + 4, { align: "right" });
             doc.text(`$${(item.price * item.qty).toFixed(2)}`, 180, y + 4, { align: "right" });
-            y += 8; // Increased spacing between rows
+            y += 8;
         });
 
         doc.setFillColor(224, 242, 241);
@@ -196,8 +204,15 @@ function generateReceipt() {
         doc.text("Visit Us Again for Your Health Needs!", 105, y + 7, { align: "center" });
         y += 18;
 
-        // QR code with correct relative path
-        doc.addImage('./images/frame.png', 'PNG', 85, y, 40, 40);
+        // QR code with fallback handling
+        try {
+            doc.addImage('/images/frame.png', 'PNG', 85, y, 40, 40); // Adjust path here
+        } catch (e) {
+            console.warn("Failed to load QR code image:", e);
+            doc.setFontSize(9);
+            doc.setTextColor(255, 0, 0);
+            doc.text("QR code not found", 105, y + 5, { align: "center" }); // Placeholder text
+        }
         doc.setFontSize(9);
         doc.setTextColor(51, 51, 51);
         doc.text("Scan for Prescription Refills", 105, y + 45, { align: "center" });
