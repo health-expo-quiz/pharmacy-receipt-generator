@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: #f0f5f9; /* Light blue-gray for a calming feel */
+    background-color: #f0f5f9;
     text-align: center;
 }
 
@@ -15,12 +15,11 @@ body {
 }
 
 h1 {
-    color: #006064; /* Deep teal for a professional pharmacy look */
+    color: #006064;
     margin-bottom: 20px;
-    font-size: 28px; /* Slightly larger for prominence */
+    font-size: 28px;
     font-weight: bold;
     letter-spacing: 1px;
-    /* Optional: Add pharmacy name as pseudo-element if used with HTML */
 }
 
 h1::before {
@@ -30,7 +29,7 @@ h1::before {
 }
 
 h2 {
-    color: #004d40; /* Darker teal for section headers */
+    color: #004d40;
     font-size: 18px;
     margin: 15px 0 10px;
 }
@@ -42,10 +41,10 @@ form {
 }
 
 .section {
-    border: 1px solid #b2dfdb; /* Light teal border */
+    border: 1px solid #b2dfdb;
     padding: 15px;
     border-radius: 4px;
-    background-color: #f7fafc; /* Very light blue background */
+    background-color: #f7fafc;
 }
 
 label {
@@ -59,7 +58,7 @@ label {
 input, select {
     padding: 8px;
     font-size: 14px;
-    border: 1px solid #80cbc4; /* Medium teal border */
+    border: 1px solid #80cbc4;
     border-radius: 4px;
     width: 100%;
     box-sizing: border-box;
@@ -79,7 +78,7 @@ input, select {
 button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #006064; /* Matching teal for buttons */
+    background-color: #006064;
     color: white;
     border: none;
     border-radius: 4px;
@@ -88,13 +87,13 @@ button {
 }
 
 button:hover {
-    background-color: #004d40; /* Darker teal on hover */
+    background-color: #004d40;
 }
 
 #receiptPreview {
     margin-top: 20px;
     padding: 20px;
-    border: 1px solid #b2dfdb; /* Matching teal border */
+    border: 1px solid #b2dfdb;
     background-color: #fff;
     border-radius: 4px;
     text-align: left;
@@ -119,13 +118,13 @@ th:nth-child(3), td:nth-child(3) { width: 15%; text-align: right; }
 th:nth-child(4), td:nth-child(4) { width: 15%; text-align: right; }
 
 th {
-    background-color: #006064; /* Teal header for tables */
+    background-color: #006064;
     color: white;
     font-weight: bold;
 }
 
 tr:nth-child(even) {
-    background-color: #f7fafc; /* Light blue for even rows */
+    background-color: #f7fafc;
 }
 
 tr:nth-child(odd) {
@@ -134,7 +133,7 @@ tr:nth-child(odd) {
 
 .total-row {
     font-weight: bold;
-    background-color: #e0f2f1; /* Light teal for totals */
+    background-color: #e0f2f1;
 }
 
 .hidden {
@@ -142,16 +141,28 @@ tr:nth-child(odd) {
 }
 
 .banner {
-    background-color: #e0f7fa; /* Light cyan banner */
+    background-color: #e0f7fa;
     padding: 8px;
     text-align: center;
     margin: 10px 0;
     border: 1px solid #b2ebf2;
-    color: #006064; /* Matching teal text */
+    color: #006064;
+}
+
+.flash-sale-banner {
+    background-color: #ff0000;
+    padding: 10px;
+    text-align: center;
+    margin: 10px 0;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 4px;
 }
 
 .qr-placeholder {
-    border: 1px dashed #80cbc4; /* Teal dashed border */
+    border: 1px dashed #80cbc4;
     padding: 10px;
     text-align: center;
     margin-top: 10px;
